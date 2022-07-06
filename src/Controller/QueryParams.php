@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\ParameterBag;
+use Psr\Log\LoggerInterface;
 
 /**
  * Description of getQueryParams
@@ -17,6 +18,7 @@ use Symfony\Component\HttpFoundation\ParameterBag;
  */
 #[Route('/user')]
 class QueryParams {
+    public function __construct(private LoggerInterface $logger) {}
     
     #[Route('/query',name:"get-query-params",methods:['GET'])]
     public function getQueryParams(Request $request):Response {
@@ -30,6 +32,8 @@ class QueryParams {
     
     #[Route('/attributesuno/{name}/{email}',name:"get-attr1-params",methods:['GET'])]
     public function getFromAttrParamsUno(Request $request):Response {
+        
+        $this->logger->info('Esto es un mensaje');
         
         
         return new JsonResponse([
