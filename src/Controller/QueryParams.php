@@ -18,6 +18,7 @@ use Psr\Log\LoggerInterface;
  */
 #[Route('/user')]
 class QueryParams {
+    //Agregro Logger para usarlo en el controlador
     public function __construct(private LoggerInterface $logger) {}
     
     #[Route('/query',name:"get-query-params",methods:['GET'])]
@@ -33,6 +34,7 @@ class QueryParams {
     #[Route('/attributesuno/{name}/{email}',name:"get-attr1-params",methods:['GET'])]
     public function getFromAttrParamsUno(Request $request):Response {
         
+        //        logger dentro de un controlador
         $this->logger->info('Esto es un mensaje');
         
         
