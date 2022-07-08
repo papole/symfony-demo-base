@@ -8,7 +8,21 @@
                 {{ name }}
             </div>
             <div class="col">
-                {{ email }}
+                
+                {% if null != email %}
+                    {{ email }}
+                {% else %}
+                    "No exite email"
+                {% endif %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <ul>
+                {% for item in items %}
+                    <li>{{ item }}</li>                    
+                {%  endfor %}
+                </ul>
             </div>
         </div>
     </div>

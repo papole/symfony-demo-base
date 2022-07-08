@@ -30,11 +30,14 @@ class QueryParams extends AbstractController {
 
         $name = $request->query->get('name');
         $email = $request->query->get('email');
+        
+        $items = ["uno","dos","tres"];
 
         return $this->render(
                     "params/params.html.twig", [
                     "name" => $name,
-                    "email" => $email
+                    "email" => $email,
+                    "items" => $items
         ]);
 
         //        return new JsonResponse([
